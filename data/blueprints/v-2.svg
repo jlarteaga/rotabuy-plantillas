@@ -2,15 +2,15 @@
 <g filter="url(#filter0_d)">
 <rect x="0" y="0" width="1080" height="1080" fill="#272526"/>
 </g>
-<rect x="0" y="0" width="480" height="562.759" fill="#C4C4C4"/>
-<rect x="0" y="0" width="480" height="562.759" fill="url(#pattern0)"/>
+<rect x="0" y="0" width="480" height="638" fill="#C4C4C4"/>
+<rect x="0" y="0" width="480" height="638" fill="url(#pattern0)"/>
 <rect x="480" width="600" height="562.759" fill="#E2B562"/>
 <text fill="#272526" xml:space="preserve" style="white-space: pre" font-family="Macondo" font-size="68" letter-spacing="0em"><tspan id="brand" text-anchor="middle" x="780" y="89.38">Kirkland Signature</tspan></text>
 <text fill="#272526" xml:space="preserve" style="white-space: pre" font-family="Macondo" font-size="58" letter-spacing="0em"><tspan id="type" text-anchor="middle" x="780" y="176.284">Saco</tspan></text>
 <text fill="#272526" xml:space="preserve" style="white-space: pre" font-family="Macondo" font-size="46" letter-spacing="0em"><tspan id="size" text-anchor="middle" x="780" y="233.708">Talla: 34</tspan></text>
 <text fill="#272526" xml:space="preserve" style="white-space: pre" font-family="Macondo" font-size="46" letter-spacing="0em"><tspan id="color" text-anchor="middle" x="780" y="287.708">Color: Gris</tspan></text>
 <text fill="#272526" xml:space="preserve" style="white-space: pre" font-family="Macondo" font-size="46" letter-spacing="0em"><tspan id="price" text-anchor="middle" x="780" y="341.708">Precio: 200 Bs</tspan></text>
-<rect x="128" y="659" width="270" height="168.05" fill="url(#pattern1)"/>
+<rect x="128" y="685" width="270" height="168.05" fill="url(#pattern1)"/>
 <text fill="white" xml:space="preserve" style="white-space: pre" font-family="Macondo" font-size="46" letter-spacing="0em"><tspan x="223" y="987.708">63262901</tspan></text>
 <text fill="white" xml:space="preserve" style="white-space: pre" font-family="Macondo" font-size="32" letter-spacing="0em"><tspan x="248" y="937.536">WhatsApp</tspan></text>
 <circle cx="139" cy="955" r="47" fill="#E2B562"/>
