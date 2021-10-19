@@ -1,0 +1,19 @@
+{
+	"name": "plantillas",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "Jorge Luis Arteaga Almaraz",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"start": "nodemon src/index.js"
+	},
+	"dependencies": {
+		"csv-reader": "^1.0.8",
+		"generic-pool": "^3.8.2",
+		"jsdom": "^17.0.0"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.12"
+	}
+}
