@@ -14,6 +14,8 @@ export class BlueprintProcessor {
 	renderedBlueprintM2;
 	renderedBlueprintN1;
 	renderedBlueprintN2;
+	renderedBlueprintBF1;
+	renderedBlueprintBF2;
 
 	constructor() {
 		const options = {
@@ -25,6 +27,8 @@ export class BlueprintProcessor {
 		this.renderedBlueprintM2 = new JSDOM(readFileSync(`${blueprintsPath}/m-2.svg`), options);
 		this.renderedBlueprintN1 = new JSDOM(readFileSync(`${blueprintsPath}/n-1.svg`), options);
 		this.renderedBlueprintN2 = new JSDOM(readFileSync(`${blueprintsPath}/n-2.svg`), options);
+		this.renderedBlueprintBF1 = new JSDOM(readFileSync(`${blueprintsPath}/bf-1.svg`), options);
+		this.renderedBlueprintBF2 = new JSDOM(readFileSync(`${blueprintsPath}/bf-2.svg`), options);
 	}
 
 	process(product) {
@@ -32,7 +36,7 @@ export class BlueprintProcessor {
 			const photoCount = this._getPhotoCount(product);
 			const code = product['Codigo Nuevo'];
 			if (photoCount === 0) {
-				// console.log(`Can't process ${product['Codigo Nuevo']}`);
+				console.log(`Couldn't find photos for ${product['Codigo Nuevo']}`);
 				return resolve();
 			}
 			const renderedBlueprint = this._getRenderer(product, photoCount);
@@ -41,6 +45,10 @@ export class BlueprintProcessor {
 			this._setTextContent(renderedBlueprint, 'size', `Talla: ${product.Talla}`);
 			this._setTextContent(renderedBlueprint, 'color', `Color: ${product.Color}`);
 			this._setTextContent(renderedBlueprint, 'price', `Precio: ${product.Precio} Bs`);
+			if (product.Descuento && product.Descuento !== 0) {
+				this._setTextContent(renderedBlueprint, 'discount', `${product.Descuento}%`);
+				this._setTextContent(renderedBlueprint, 'discountPrice', `${product.PrecioDescuento} Bs`);
+			}
 			if (photoCount === 1) {
 				await this._loadPhoto(renderedBlueprint, 'image1', `${picturesPath}/${code}.jpg`);
 			} else if (photoCount === 2) {
@@ -69,17 +77,21 @@ export class BlueprintProcessor {
 	_getRenderer(product, photoCount) {
 		const gender = product.Genero;
 		let baseRenderer = 'renderedBlueprint';
-		switch (gender) {
-			case 'Mujer':
-				baseRenderer += 'M';
-				break;
-			case 'Niños':
-			case 'Niñas':
-				baseRenderer += 'N';
-				break;
-			default:
-				baseRenderer += 'V';
-				break;
+		if (product.Descuento && product.Descuento !== 0 && product.Descuento !== '0') {
+			baseRenderer += 'BF';
+		} else {
+			switch (gender) {
+				case 'Mujer':
+					baseRenderer += 'M';
+					break;
+				case 'Niños':
+				case 'Niñas':
+					baseRenderer += 'N';
+					break;
+				default:
+					baseRenderer += 'V';
+					break;
+			}
 		}
 		baseRenderer += photoCount;
 		if (!this[baseRenderer]) {
