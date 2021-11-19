@@ -47,7 +47,7 @@ export class BlueprintProcessor {
 			this._setTextContent(renderedBlueprint, 'price', `Precio: ${product.Precio} Bs`);
 			if (product.Descuento && product.Descuento !== 0) {
 				this._setTextContent(renderedBlueprint, 'discount', `${product.Descuento}%`);
-				this._setTextContent(renderedBlueprint, 'discountPrice', `${product.PrecioDescuento} Bs`);
+				this._setTextContent(renderedBlueprint, 'discountPrice', `Ahora: ${product.PrecioDescuento} Bs`);
 			}
 			if (photoCount === 1) {
 				await this._loadPhoto(renderedBlueprint, 'image1', `${picturesPath}/${code}.jpg`);
